@@ -1,6 +1,11 @@
+Aqui está o seu `README.md` completo e atualizado, agora incluindo a seção detalhada sobre como utilizar o script `test.js` para validar o funcionamento do bot antes de deixá-lo rodando no automático.
+
+Basta copiar o código abaixo e substituir no seu repositório:
+
+```markdown
 # 🤖 Bot de Automação de Grupo WhatsApp
 
-Este é um bot feito em **Node.js** usando a biblioteca [whatsapp-web.js](https://github.com/pedroslopez/whatsapp-web.js), que **abre e fecha automaticamente um grupo do WhatsApp** nos horários configurados, além de permitir **mensagens automáticas de aviso**.
+Este é um bot feito em **Node.js** usando a biblioteca [whatsapp-web.js](https://github.com/pedroslopez/whatsapp-web.js), que **abre e fecha automaticamente um grupo do WhatsApp** nos horários configurados, além de permitir **mensagens automáticas de aviso**. O código foi adaptado para rodar nativamente em servidores Linux (incluindo ARM), Windows e Mac.
 
 ## 📅 Funcionalidades
 
@@ -9,6 +14,7 @@ Este é um bot feito em **Node.js** usando a biblioteca [whatsapp-web.js](https:
 - 📢 Envia mensagens automáticas informando a abertura ou fechamento do grupo
 - 💻 Pode ser executado 24/7 com **PM2**
 - 🧠 Usa `LocalAuth` para manter a sessão do WhatsApp ativa sem reautenticar
+- 🌐 Detecção automática de sistema operacional para rodar o Chromium corretamente em qualquer ambiente.
 
 ---
 
@@ -29,9 +35,11 @@ npm install whatsapp-web.js qrcode-terminal node-schedule
 
 ```
 
+*(Nota para usuários de servidores Linux: certifique--se de ter o Chromium instalado no sistema rodando `sudo apt update && sudo apt install -y chromium-browser`)*.
+
 3. **Edite o ID do grupo**
 
-No arquivo `bot.js`, substitua a variável `GROUP_ID` pelo ID real do seu grupo:
+Nos arquivos `bot.js` e `test.js`, substitua a variável `GROUP_ID` pelo ID real do seu grupo:
 
 ```javascript
 const GROUP_ID = '120363333148844897@g.us';
@@ -78,20 +86,44 @@ Execute o script com o comando `node get-id.js`, escaneie o QR Code e copie o ID
 
 ---
 
-## ▶️ Execução do Bot
+## 🧪 Testando o Bot Manualmente
+
+Antes de deixar o bot rodando de forma automática, você pode usar o script `test.js` para garantir que as permissões de administrador estão corretas e que o bot consegue abrir e fechar o grupo imediatamente.
+
+Para testar a **abertura** do grupo, rode:
+
+```bash
+node test.js open
+
+```
+
+Para testar o **fechamento** do grupo, rode:
+
+```bash
+node test.js close
+
+```
+
+*(Se for a primeira vez rodando, o terminal exibirá o QR Code para você escanear. A sessão será salva para os próximos usos).*
+
+---
+
+## ▶️ Execução do Bot (Automático)
+
+Para iniciar a rotina de agendamentos, execute o arquivo principal:
 
 ```bash
 node bot.js
 
 ```
 
-Na **primeira vez**, será exibido um QR Code no terminal. Escaneie com seu WhatsApp para autenticar. Nas próximas vezes, a sessão será restaurada automaticamente.
+Nas próximas vezes, a sessão será restaurada automaticamente sem a necessidade de ler o QR Code novamente.
 
 ---
 
-## 🛠 Execução contínua com PM2 (opcional)
+## 🛠 Execução contínua com PM2 (Recomendado)
 
-Para manter o bot rodando em segundo plano, mesmo se você fechar o terminal:
+Para manter o bot rodando em segundo plano, mesmo se você fechar o terminal do seu servidor:
 
 ```bash
 npm install -g pm2
@@ -100,7 +132,7 @@ pm2 save
 
 ```
 
-Para fazer o bot iniciar automaticamente junto com o sistema operacional:
+Para fazer o bot iniciar automaticamente junto com o sistema operacional caso o servidor reinicie:
 
 ```bash
 pm2 startup
