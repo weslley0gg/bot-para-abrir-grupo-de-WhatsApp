@@ -1,8 +1,3 @@
-Aqui está o seu `README.md` completo e atualizado, agora incluindo a seção detalhada sobre como utilizar o script `test.js` para validar o funcionamento do bot antes de deixá-lo rodando no automático.
-
-Basta copiar o código abaixo e substituir no seu repositório:
-
-```markdown
 # 🤖 Bot de Automação de Grupo WhatsApp
 
 Este é um bot feito em **Node.js** usando a biblioteca [whatsapp-web.js](https://github.com/pedroslopez/whatsapp-web.js), que **abre e fecha automaticamente um grupo do WhatsApp** nos horários configurados, além de permitir **mensagens automáticas de aviso**. O código foi adaptado para rodar nativamente em servidores Linux (incluindo ARM), Windows e Mac.
