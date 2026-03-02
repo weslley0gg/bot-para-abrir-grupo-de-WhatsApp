@@ -47,6 +47,7 @@ const client = new Client({
     authStrategy: new LocalAuth(),
     puppeteer: puppeteerConfig
 });
+
 // Substitua pelo ID do seu grupo
 const GROUP_ID = '120363333148844897@g.us';
 
