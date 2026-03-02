@@ -18,7 +18,7 @@ Este é um bot feito em **Node.js** usando a biblioteca [whatsapp-web.js](https:
 
 ```bash
 git clone https://github.com/weslley0gg/bot-para-abrir-grupo-de-WhatsApp
-cd seu-repo
+cd bot-para-abrir-grupo-de-WhatsApp
 
 ```
 
