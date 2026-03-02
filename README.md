@@ -1,8 +1,3 @@
-Aqui está o README atualizado e aprimorado. Aproveitei para adicionar uma seção nova detalhando exatamente **como criar e rodar o script auxiliar** para descobrir o `GROUP_ID`, o que torna a documentação do seu projeto muito mais completa e fácil de seguir para outros desenvolvedores.
-
-Basta copiar o bloco abaixo e colar no seu arquivo `README.md`:
-
-```markdown
 # 🤖 Bot de Automação de Grupo WhatsApp
 
 Este é um bot feito em **Node.js** usando a biblioteca [whatsapp-web.js](https://github.com/pedroslopez/whatsapp-web.js), que **abre e fecha automaticamente um grupo do WhatsApp** nos horários configurados, além de permitir **mensagens automáticas de aviso**.
@@ -126,9 +121,3 @@ pm2 startup
 ## 📄 Licença
 
 MIT. Desenvolvido por Weslei.
-
-```
-
----
-
-```
